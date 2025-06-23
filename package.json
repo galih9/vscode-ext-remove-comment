@@ -1,6 +1,6 @@
 {
-  "name": "helloworld",
-  "displayName": "Hellow",
+  "name": "nocomment",
+  "displayName": "No Comment",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -14,8 +14,16 @@
   "contributes": {
     "commands": [
       {
-        "command": "helloworld.helloWorld",
-        "title": "Hello World"
+        "command": "nocomment.helloWorld",
+        "title": "No Comment: Hello world"
+      },
+      {
+        "command": "nocomment.second",
+        "title": "No Comment Second"
+      },
+      {
+        "command": "nocomment.removeComment",
+        "title": "No Comment"
       }
     ]
   },
