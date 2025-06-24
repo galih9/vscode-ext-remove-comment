@@ -13,7 +13,7 @@ NoComment is smart enough to differentiate between actual comments and similar t
 ### Broad Language Support
 NoComment supports a wide range of programming languages, making it a versatile tool for any developer.
 
-![Basic Example](images/basic.gif)
+![Basic Example](https://s14.gifyu.com/images/bHdw0.md.gif)
 
 ---
 
