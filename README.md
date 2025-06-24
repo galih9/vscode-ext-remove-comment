@@ -1,71 +1,36 @@
-# helloworld README
+# NoComment: Instant Comment Removal for Cleaner Code
 
-This is the README for your extension "helloworld". After writing up a brief description, we recommend including the following sections.
+Tired of clutter in your code, especially from AI-generated comments? **NoComment** is a powerful VS Code extension designed to effortlessly **remove all comments from your files in an instant**. Achieve a cleaner, more readable codebase with a single click.
 
-## Features
+## Key Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Blazingly Fast Performance
+Experience lightning-fast comment removal, optimizing your workflow without delay.
 
-For example if there is an image subfolder under your extension project workspace:
+### Intelligent Comment Recognition
+NoComment is smart enough to differentiate between actual comments and similar text found within regex patterns or URLs, ensuring accurate and safe code cleaning.
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+### Broad Language Support
+NoComment supports a wide range of programming languages, making it a versatile tool for any developer.
 
 ---
 
-## Following extension guidelines
+### Stay Updated!
+This extension is under active development. Enable auto-updates in VS Code to ensure you always have the latest features and improvements.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+---
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+## Version 1.0.0
 
-## Working with Markdown
+* Initial public release.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+---
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+## Get in Touch
 
-## For more information
+* [Contact Me](http://code.visualstudio.com/docs/languages/markdown)
+* [My GitHub](https://github.com/galih9)
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+---
 
-**Enjoy!**
+**Enjoy a cleaner coding experience with NoComment!**
