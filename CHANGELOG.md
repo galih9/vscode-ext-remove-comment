@@ -4,6 +4,11 @@ All notable changes to the "Anti Comment" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
-
+## v0.0.1
 - Initial release
+
+## v0.0.2
+- Update new identity into Anti Comment since NoComment was already taken
+
+## v0.0.3
+- Add support for python language
