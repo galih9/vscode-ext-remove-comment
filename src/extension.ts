@@ -1,23 +1,23 @@
 import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Congratulations, your extension "nocomment" is now active!');
+  console.log('Congratulations, your extension "anticomment" is now active!');
   const disposable = vscode.commands.registerCommand(
-    "nocomment.helloWorld",
+    "anticomment.helloWorld",
     () => {
       vscode.window.showInformationMessage("ASSALAMUALAIKUM!");
     }
   );
 
   const secondDisposable = vscode.commands.registerCommand(
-    "nocomment.second",
+    "anticomment.second",
     () => {
       vscode.window.showInformationMessage("SECOND COMMAND EXECUTED!");
     }
   );
 
   const removeCommentDisposable = vscode.commands.registerCommand(
-    "nocomment.removeComment",
+    "anticomment.removeComment",
     async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) {

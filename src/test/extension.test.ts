@@ -43,7 +43,7 @@ const z = 3;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'typescript' });
 		const editor = await vscode.window.showTextDocument(doc);
 
-		await vscode.commands.executeCommand('nocomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removeComment');
 
 		const result = doc.getText();
 

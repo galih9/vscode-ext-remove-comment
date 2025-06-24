@@ -1,5 +1,5 @@
 {
-  "name": "nocomment",
+  "name": "anticomment",
   "displayName": "No Comment",
   "description": "",
   "version": "0.0.1",
@@ -19,15 +19,15 @@
   "contributes": {
     "commands": [
       {
-        "command": "nocomment.helloWorld",
+        "command": "anticomment.helloWorld",
         "title": "No Comment: Hello world"
       },
       {
-        "command": "nocomment.second",
+        "command": "anticomment.second",
         "title": "No Comment Second"
       },
       {
-        "command": "nocomment.removeComment",
+        "command": "anticomment.removeComment",
         "title": "No Comment"
       }
     ]
