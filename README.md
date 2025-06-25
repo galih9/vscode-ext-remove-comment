@@ -13,7 +13,7 @@ Anti Comment is smart enough to differentiate between actual comments and simila
 ### Broad Language Support
 Anti Comment supports a wide range of programming languages, making it a versatile tool for any developer.
 
-![Basic Example](https://s14.gifyu.com/images/bHdw0.md.gif)
+![Basic Example](https://s14.gifyu.com/images/bHdw0.gif)
 
 ## Usage
 
