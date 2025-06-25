@@ -12,3 +12,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## v0.0.3
 - Add support for python language
+
+## v0.0.4
+- Add support for vue language
+- Refactor code structure

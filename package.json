@@ -1,9 +1,9 @@
 {
   "name": "anticomment",
   "displayName": "Anti Comment",
-  "description": "",
+  "description": "Simple comments remover",
   "icon": "images/icon.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "galih9",
   "repository": {
     "type": "git",
