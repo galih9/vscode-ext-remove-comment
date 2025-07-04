@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "Anti Comment" extension will be documented in this file.
+All notable changes to the "Todo Man" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
@@ -8,11 +8,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Initial release
 
 ## v0.0.2
-- Update new identity into Anti Comment since NoComment was already taken
+- Update new icon
+- Update the readme
 
 ## v0.0.3
-- Add support for python language
-
-## v0.0.4
-- Add support for vue language
-- Refactor code structure
+- Refactor the engine, replace the bundle webpack with pure html for performance improvement

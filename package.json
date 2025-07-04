@@ -1,10 +1,10 @@
 {
-  "name": "anticomment",
-  "displayName": "Anti Comment",
-  "description": "Simple comments remover",
-  "icon": "images/icon.png",
-  "version": "0.0.4",
+  "name": "g9todoman",
+  "displayName": "TodoMan",
+  "description": "A Handy Todo List Manager For Keep Track Your Task",
+  "icon": "media/icon.png",
   "publisher": "galih9",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/galih9/vscode-ext-remove-comment"
@@ -18,10 +18,31 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "g9todoman-sidebar-view",
+          "title": "Todoman",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "g9todoman-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "g9todoman-sidebar",
+          "name": "Notes",
+          "icon": "media/icon.svg",
+          "contextualTitle": "Ctxtitle"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "anticomment.removeComment",
-        "title": "Anti Comment"
+        "command": "g9todoman.addTodo",
+        "category": "TodoMan",
+        "title": "Add Todo"
       }
     ]
   },

@@ -1,28 +1,40 @@
-import * as vscode from "vscode";
-import { getFileType, removeComments } from "./languages";
+import * as vscode from 'vscode';
+import { SidebarProvider } from './SidebarProvider';
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Extension "anticomment" is now active!');
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand("anticomment.removeComment", async () => {
-      const editor = vscode.window.activeTextEditor;
-      if (!editor) {
-        vscode.window.showWarningMessage("No active editor found.");
-        return;
-      }
+	// Register the Sidebar Panel
+	const sidebarProvider = new SidebarProvider(context.extensionUri);
+	context.subscriptions.push(
+		vscode.window.registerWebviewViewProvider(
+			"g9todoman-sidebar",
+			sidebarProvider
+		)
+	);
 
-      const document = editor.document;
-      const fileType = getFileType(document);
-      const remove = removeComments[fileType];
+	context.subscriptions.push(vscode.commands.registerCommand('g9todoman.addTodo', async () => {
+		const todo = await vscode.window.showInputBox({
+			prompt: "Enter a new todo"
+		});
+		if (todo && todo.trim()) {
+			// Send message to the sidebar webview to add and persist the todo
+			sidebarProvider._view?.webview.postMessage({
+				type: "addTodo",
+				value: todo.trim()
+			});
+		}
+	}));
 
-      if (remove) {
-        await remove(editor, document);
-      } else {
-        vscode.window.showWarningMessage(`Unsupported file type for comment removal: "${document.fileName}"`);
-      }
-    })
-  );
+	// Always set up a listener for when the webview is resolved
+	const setupWebviewListener = (webviewView: vscode.WebviewView) => {
+		webviewView.webview.onDidReceiveMessage((message) => {
+			switch (message.type) {
+				// handle messages from webview if needed
+			}
+		});
+	};
+	sidebarProvider.onDidResolveWebviewView(setupWebviewListener);
 }
 
-export function deactivate() {}
+// this method is called when your extension is deactivated
+export function deactivate() { }
