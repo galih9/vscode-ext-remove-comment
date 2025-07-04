@@ -5,7 +5,6 @@ import * as path from "path";
 export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
   _doc?: vscode.TextDocument;
-  private _onDidResolveWebviewViewCallbacks: Array<(webviewView: vscode.WebviewView) => void> = [];
 
   constructor(private readonly _extensionUri: vscode.Uri) {}
 
@@ -44,13 +43,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
         }
       }
     });
-
-    // Call any registered callbacks
-    this._onDidResolveWebviewViewCallbacks.forEach(cb => cb(webviewView));
-  }
-
-  public onDidResolveWebviewView(cb: (webviewView: vscode.WebviewView) => void) {
-    this._onDidResolveWebviewViewCallbacks.push(cb);
   }
 
   public revive(panel: vscode.WebviewView) {

@@ -13,200 +13,176 @@
       background: var(--vscode-sideBar-background, #1e1e1e);
       color: var(--vscode-sideBar-foreground, #d4d4d4);
     }
-    .todo-container {
+    .tstool-container {
       max-width: 400px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 18px;
-      color: var(--vscode-sideBarTitle-foreground, #fff);
-      letter-spacing: 1px;
-    }
-    .todo-input-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-    .todo-input-row input[type="text"] {
-      flex: 1 1 auto;
-      min-width: 0;
-      padding: 8px;
+    .tstool-textarea {
+      width: 100%;
+      min-height: 100px;
+      margin-bottom: 12px;
       border-radius: 4px;
       border: 1px solid var(--vscode-input-border, #333);
-      background: var(--vscode-input-background, #1e1e1e);
+      background: var(--vscode-input-background, #252526);
       color: var(--vscode-input-foreground, #d4d4d4);
-      font-size: 1em;
-      outline: none;
-      transition: border 0.2s;
+      font-family: var(--vscode-editor-font-family, 'Fira Mono', monospace);
+      font-size: 14px;
+      padding: 8px;
+      resize: vertical;
+      box-sizing: border-box;
     }
-    .todo-input-row button {
-      flex: 0 0 auto;
-      width: 36px;
-      padding: 0;
-      border: none;
-      border-radius: 4px;
+    .tstool-label {
+      margin: 8px 0 4px 0;
+      font-weight: bold;
+      display: block;
+    }
+    .tstool-btn {
       background: var(--vscode-button-background, #0e639c);
       color: var(--vscode-button-foreground, #fff);
-      font-weight: bold;
-      font-size: 1.3em;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 16px;
       cursor: pointer;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 14px;
+      margin-top: 8px;
+      margin-bottom: 8px;
     }
-    .todo-input-row button:hover {
+    .tstool-btn:active {
       background: var(--vscode-button-hoverBackground, #1177bb);
     }
-    ul.todo-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    ul.todo-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--vscode-editorWidget-background, #232323);
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background 0.2s;
-      margin: 0 0 4px 0;
-    }
-    ul.todo-list li.completed {
-      text-decoration: line-through;
-      opacity: 0.6;
-    }
-    .todo-actions {
-      display: flex;
-      gap: 6px;
-    }
-    .todo-actions button {
-      background: none;
-      border: none;
-      color: var(--vscode-button-foreground, #fff);
-      cursor: pointer;
-      font-size: 1.1em;
-      padding: 2px 6px;
-      border-radius: 3px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .todo-actions button.delete-btn {
-      color: var(--vscode-errorForeground, #f14c4c);
-      font-weight: bold;
-      font-size: 1.1em;
-    }
-    .todo-actions button.delete-btn:hover {
-      background: var(--vscode-button-hoverBackground, #333);
-      color: #fff;
-    }
-    .empty-state {
-      text-align: center;
-      color: var(--vscode-descriptionForeground, #888);
-      margin-top: 16px;
-      font-style: italic;
+    .tstool-error {
+      color: var(--vscode-editorError-foreground, #f14c4c);
+      font-size: 13px;
+      margin: 4px 0 0 0;
+      min-height: 18px;
     }
   </style>
   <script nonce="${nonce}">
-    const tsvscode = acquireVsCodeApi();
-
-    // Todo app logic
-    function getTodos() {
-      try {
-        return JSON.parse(localStorage.getItem('vscode_todos') || '[]');
-      } catch {
-        return [];
-      }
-    }
-    function saveTodos(todos) {
-      localStorage.setItem('vscode_todos', JSON.stringify(todos));
-    }
-    function renderTodos() {
-      const todos = getTodos();
-      const list = document.getElementById('todo-list');
-      list.innerHTML = '';
-      if (todos.length === 0) {
-        document.getElementById('empty-state').style.display = '';
-        return;
-      }
-      document.getElementById('empty-state').style.display = 'none';
-      todos.forEach((todo, idx) => {
-        const li = document.createElement('li');
-        li.className = todo.completed ? 'completed' : '';
-        // Checkbox
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = !!todo.completed;
-        checkbox.addEventListener('change', () => {
-          todos[idx].completed = !todos[idx].completed;
-          saveTodos(todos);
-          renderTodos();
-        });
-        li.appendChild(checkbox);
-        // Text
-        const span = document.createElement('span');
-        span.textContent = todo.text;
-        span.style.flex = '1';
-        span.style.marginLeft = '10px';
-        li.appendChild(span);
-        // Actions
-        const actions = document.createElement('div');
-        actions.className = 'todo-actions';
-        // Delete button
-        const delBtn = document.createElement('button');
-        delBtn.title = 'Delete';
-        delBtn.className = 'delete-btn';
-        delBtn.textContent = 'X';
-        delBtn.addEventListener('click', () => {
-          todos.splice(idx, 1);
-          saveTodos(todos);
-          renderTodos();
-        });
-        actions.appendChild(delBtn);
-        li.appendChild(actions);
-        list.appendChild(li);
-      });
+    function toPascalCase(str) {
+      return str.replace(/(^\w|_\w)/g, s => s.replace('_', '').toUpperCase());
     }
 
-    // Listen for messages from the extension
-    window.addEventListener('message', event => {
-      const message = event.data;
-      if (message.type === 'addTodo' && typeof message.value === 'string') {
-        const todos = getTodos();
-        todos.push({ text: message.value, completed: false });
-        saveTodos(todos);
-        renderTodos();
+    function jsonToTsInterface(obj, rootName = "Root") {
+      const seen = new Map();
+      const interfaces = [];
+
+      function getType(val, nameHint) {
+        if (val === null) return "any";
+        if (Array.isArray(val)) {
+          if (val.length === 0) return "any[]";
+          // Use first element for type inference
+          return getType(val[0], nameHint) + "[]";
+        }
+        if (typeof val === "object") {
+          return parseObject(val, nameHint);
+        }
+        if (typeof val === "number") return "number";
+        if (typeof val === "boolean") return "boolean";
+        if (typeof val === "string") return "string";
+        return "any";
       }
-    });
+
+      function parseObject(obj, nameHint) {
+        // Generate interface name
+        let ifaceName = toPascalCase(nameHint || "Anon");
+        // Avoid duplicate interfaces for the same structure
+        const sig = JSON.stringify(Object.keys(obj).sort().map(k => [k, typeof obj[k]]));
+        if (seen.has(sig)) return seen.get(sig);
+
+        // If root, use rootName
+        if (nameHint === "__ROOT__") ifaceName = rootName;
+
+        let fields = "";
+        for (const key in obj) {
+          const val = obj[key];
+          let fieldType;
+          if (typeof val === "object" && val !== null) {
+            if (Array.isArray(val)) {
+              if (val.length > 0 && typeof val[0] === "object" && val[0] !== null) {
+                // Array of objects: generate interface for items
+                const childName = toPascalCase(key);
+                fieldType = getType(val, childName);
+              } else {
+                fieldType = getType(val, key);
+              }
+            } else {
+              // Nested object: generate interface
+              const childName = toPascalCase(key);
+              fieldType = getType(val, childName);
+            }
+          } else {
+            fieldType = getType(val, key);
+          }
+          fields += `  ${key}: ${fieldType};\n`;
+        }
+        const iface = `export interface ${ifaceName} {\n${fields}}`;
+        interfaces.push(iface);
+        seen.set(sig, ifaceName);
+        return ifaceName;
+      }
+
+      let output = "";
+      if (Array.isArray(obj)) {
+        // Root is array
+        const itemName = rootName + "2";
+        const itemType = getType(obj[0], itemName);
+        output += `export type ${rootName} = ${itemType}[]\n\n`;
+        // Parse the item to generate interfaces
+        getType(obj[0], itemName);
+      } else if (typeof obj === "object" && obj !== null) {
+        // Root is object
+        getType(obj, "__ROOT__");
+      }
+      // Remove duplicates and preserve order
+      const unique = Array.from(new Set(interfaces.reverse())).reverse();
+      output += unique.join("\n\n");
+      return output;
+    }
 
     window.addEventListener('DOMContentLoaded', () => {
-      const input = document.getElementById('todo-input');
-      const form = document.getElementById('todo-form');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const text = input.value.trim();
-        if (!text) return;
-        const todos = getTodos();
-        todos.push({ text, completed: false });
-        saveTodos(todos);
-        input.value = '';
-        renderTodos();
+      const input = document.getElementById('json-input');
+      const output = document.getElementById('ts-output');
+      const error = document.getElementById('json-error');
+      const copyBtn = document.getElementById('copy-btn');
+
+      input.addEventListener('input', () => {
+        let val = input.value.trim();
+        if (!val) {
+          output.value = "";
+          error.textContent = "";
+          return;
+        }
+        try {
+          const obj = JSON.parse(val);
+          const iface = jsonToTsInterface(obj);
+          output.value = iface;
+          error.textContent = "";
+        } catch (e) {
+          output.value = "";
+          error.textContent = "Invalid JSON";
+        }
       });
-      renderTodos();
+
+      copyBtn.addEventListener('click', () => {
+        output.select();
+        document.execCommand('copy');
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => copyBtn.textContent = "Copy to Clipboard", 1200);
+      });
     });
   </script>
 </head>
 <body>
-  <div class="todo-container">
-    <h2>📝 TodoMan</h2>
-    <form id="todo-form" class="todo-input-row" autocomplete="off">
-      <input id="todo-input" type="text" placeholder="Add a new todo..." maxlength="100" />
-      <button type="submit" title="Add">+</button>
-    </form>
-    <ul id="todo-list" class="todo-list"></ul>
-    <div id="empty-state" class="empty-state" style="display:none;">No todos yet. Add one above!</div>
+  <div class="tstool-container">
+    <h2>📝 TsTool</h2>
+    <p>Convert Json to Interface</p>
+    <label class="tstool-label" for="json-input">JSON Input</label>
+    <textarea id="json-input" class="tstool-textarea" placeholder='Paste your JSON here'></textarea>
+    <div id="json-error" class="tstool-error"></div>
+    <label class="tstool-label" for="ts-output">TypeScript Interface Output</label>
+    <textarea id="ts-output" class="tstool-textarea" readonly placeholder="Interface will appear here"></textarea>
+    <button id="copy-btn" class="tstool-btn" type="button">Copy to Clipboard</button>
   </div>
 </body>
 </html>

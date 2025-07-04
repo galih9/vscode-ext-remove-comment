@@ -1,10 +1,10 @@
 {
-  "name": "g9todoman",
-  "displayName": "TodoMan",
-  "description": "A Handy Todo List Manager For Keep Track Your Task",
+  "name": "g9tstool",
+  "displayName": "TsTool",
+  "description": "All you need for typescript development",
   "icon": "media/icon.png",
   "publisher": "galih9",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/galih9/vscode-ext-remove-comment"
@@ -21,30 +21,23 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "g9todoman-sidebar-view",
-          "title": "Todoman",
+          "id": "g9tstool-sidebar-view",
+          "title": "TsTool",
           "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "g9todoman-sidebar-view": [
+      "g9tstool-sidebar-view": [
         {
           "type": "webview",
-          "id": "g9todoman-sidebar",
-          "name": "Notes",
+          "id": "g9tstool-sidebar",
+          "name": "Typescript tools",
           "icon": "media/icon.svg",
           "contextualTitle": "Ctxtitle"
         }
       ]
-    },
-    "commands": [
-      {
-        "command": "g9todoman.addTodo",
-        "category": "TodoMan",
-        "title": "Add Todo"
-      }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",

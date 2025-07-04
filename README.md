@@ -1,39 +1,14 @@
-# Todo Man: Your Handy Todo Manager Inside VS Code
+# TS Tool: All you need for Typescript development
 
-Manage your todos efficiently right from the VS Code activity bar.
+Tired of opening new browser tabs just to convert JSON Objects into typescript interface? Now you don't have to, just a single click away inside your vscode editor.
 
-## Key Features
-
-### 🚀 Blazingly Fast Performance
-No lag, no fuss—Todo Man works instantly and as expected.
-
-### 🔒 Secure & Private Data
-Your data is stored locally in VS Code's secure storage. No data is collected or sent anywhere.
-
-### ⚡ Add Tasks via Command Palette
-Quickly add tasks by opening the command palette (`Cmd` + `Shift` + `P` or `Ctrl` + `Shift` + `P`), typing `TodoMan`, and selecting the "Add Todo" command.
-
-### 📝 Simple Task Management
-- Add, remove, and mark tasks as done with a single click.
-- Intuitive UI in the activity sidebar.
-
-## Installation
-
-1. Open VS Code.
-2. Go to the Extensions view (`Ctrl` + `Shift` + `X` or `Cmd` + `Shift` + `X`).
-3. Search for `Todo Man`.
-4. Click **Install**.
+## Features
+- **Convert to Interface**: Convert your json objects to TypeScript interfaces with a single click.
+- **Copy to Clipboard**: Easily copy TypeScript code snippets to your clipboard for quick reuse.
 
 ## Usage
 
-1. Click the Todo Man icon in the activity sidebar.
-2. Enter your task in the input field and click **Add**.
-3. Remove a task by clicking the **X** button.
-4. Mark a task as done by clicking the task text or the checkbox.
-
-## Screenshots
-
-under development
+Simply open the tab and paste your json object in there, if the json object is valid, then the interface result can be copied by click the copy to clipboard button.        
 
 ---
 
