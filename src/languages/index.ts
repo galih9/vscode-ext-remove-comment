@@ -2,7 +2,8 @@ import * as vscode from "vscode";
 import { removeTsComments } from "./typescript";
 import { removePyComments } from "./python";
 import { removeVueComments } from "./vue";
-export type SupportedLanguage = "typescript" | "python" | "vue" | "other";
+import { removeSvelteComments } from "./svelte";
+export type SupportedLanguage = "typescript" | "python" | "vue" | "other" | "svelte";
 
 export function getFileType(document: vscode.TextDocument): SupportedLanguage {
   const fileName = document.fileName.toLowerCase();
@@ -30,6 +31,8 @@ function getLanguageFromMode(languageId: string): SupportedLanguage {
       return "python";
     case "vue":
       return "vue";
+    case "svelte":
+      return "svelte";
     default:
       return "other";
   }
@@ -43,6 +46,7 @@ export const removeComments: Record<
   typescript: removeTsComments,
   python: removePyComments,
   vue: removeVueComments,
+  svelte: removeSvelteComments,
   other: async (_, document) => {
     const extension = document.fileName.split(".").pop();
     vscode.window.showWarningMessage(

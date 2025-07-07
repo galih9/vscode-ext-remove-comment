@@ -3,6 +3,7 @@ import { getFileType, removeComments } from "./languages";
 import { removeTsComments } from "./languages/typescript";
 import { removePyComments } from "./languages/python";
 import { removeVueComments } from "./languages/vue";
+import { removeSvelteComments } from "./languages/svelte";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Extension "anticomment" is now active!');
@@ -71,6 +72,19 @@ export function activate(context: vscode.ExtensionContext) {
           return;
         }
         await removeVueComments(editor, editor.document);
+      }
+    )
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "anticomment.removeSvelteComments",
+      async () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+          vscode.window.showWarningMessage("No active editor found.");
+          return;
+        }
+        await removeSvelteComments(editor, editor.document);
       }
     )
   );

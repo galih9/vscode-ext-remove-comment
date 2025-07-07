@@ -37,7 +37,12 @@
       {
         "command": "anticomment.removeVueComments",
         "category": "Anticomment",
-        "title": "Remove Vue.js Comments"
+        "title": "Remove Vue Comments"
+      },
+      {
+        "command": "anticomment.removeSvelteComments",
+        "category": "Anticomment",
+        "title": "Remove Svelte Comments"
       }
     ]
   },
