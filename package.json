@@ -3,7 +3,7 @@
   "displayName": "Anti Comment",
   "description": "Simple comments remover",
   "icon": "images/icon.png",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "galih9",
   "repository": {
     "type": "git",
