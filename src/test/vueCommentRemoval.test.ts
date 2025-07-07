@@ -21,17 +21,19 @@ const y = 2;
 		const expected = `
 <template>
   <div>Hello world</div>
+
 </template>
 
 <script>
 const x = 1;
 
 const y = 2;
+
 </script>
 `;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'vue' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removeVueComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.replace(/\r\n/g, '\n').trim(), expected.replace(/\r\n/g, '\n').trim());
 	});
@@ -58,14 +60,16 @@ body { color: red; }
 </style>
 <template>
   <span>Text</span>
+
 </template>
 <script>
 let a = 1;
+
 </script>
 `;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'vue' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removeVueComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.replace(/\r\n/g, '\n').trim(), expected.replace(/\r\n/g, '\n').trim());
 	});
@@ -75,7 +79,7 @@ let a = 1;
 		const expected = ``;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'vue' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removeVueComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result, expected);
 	});
@@ -91,13 +95,15 @@ let a = 1;
 `;
 		const expected = `
 <template>
+
 </template>
 <script>
+
 </script>
 `;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'vue' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removeVueComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.replace(/\r\n/g, '\n').trim(), expected.replace(/\r\n/g, '\n').trim());
 	});
@@ -113,11 +119,12 @@ const html = "<!-- not a comment -->";
 <script>
 const str = "// not a comment";
 const html = "<!-- not a comment -->";
+
 </script>
 `;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'vue' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removeVueComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.replace(/\r\n/g, '\n').trim(), expected.replace(/\r\n/g, '\n').trim());
 	});

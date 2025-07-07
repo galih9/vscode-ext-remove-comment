@@ -21,7 +21,23 @@
     "commands": [
       {
         "command": "anticomment.removeComment",
-        "title": "Anti Comment"
+        "category": "Anticomment",
+        "title": "Remove Comments (Auto-Detect Language)"
+      },
+      {
+        "command": "anticomment.removeTypescriptComments",
+        "category": "Anticomment",
+        "title": "Remove TypeScript/JavaScript Comments"
+      },
+      {
+        "command": "anticomment.removePythonComments",
+        "category": "Anticomment",
+        "title": "Remove Python Comments"
+      },
+      {
+        "command": "anticomment.removeVueComments",
+        "category": "Anticomment",
+        "title": "Remove Vue.js Comments"
       }
     ]
   },

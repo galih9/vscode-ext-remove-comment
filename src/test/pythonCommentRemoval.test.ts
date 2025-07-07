@@ -33,7 +33,7 @@ z = 3
 `;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'python' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removePythonComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.replace(/\r\n/g, '\n').trim(), expected.replace(/\r\n/g, '\n').trim());
 	});
@@ -51,7 +51,7 @@ z = 1
 `;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'python' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removePythonComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.replace(/\r\n/g, '\n').trim(), expected.replace(/\r\n/g, '\n').trim());
 	});
@@ -61,7 +61,7 @@ z = 1
 		const expected = ``;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'python' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removePythonComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result, expected);
 	});
@@ -75,7 +75,7 @@ docstring
 		const expected = ``;
 		const doc = await vscode.workspace.openTextDocument({ content: input, language: 'python' });
 		const editor = await vscode.window.showTextDocument(doc);
-		await vscode.commands.executeCommand('anticomment.removeComment');
+		await vscode.commands.executeCommand('anticomment.removePythonComments');
 		const result = editor.document.getText();
 		assert.strictEqual(result.trim(), expected.trim());
 	});

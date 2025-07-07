@@ -16,3 +16,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## v0.0.4
 - Add support for vue language
 - Refactor code structure
+
+## v0.0.5
+- Enhance Python language support (known issue: inline comment, docstrings inside a string)
+- Add new commands for specific type of language
+- Enhance Vue languagee support (All issue passed)

@@ -18,12 +18,15 @@ export async function removeVueComments(editor: vscode.TextEditor, document: vsc
     return match.replace(scriptContent, `\n${uncommented}\n`);
   });
 
+  console.log('cleeaned js ts', cleanedText)
+
   // Remove HTML comments from <template> block(s)
   cleanedText = cleanedText.replace(/<template[^>]*>([\s\S]*?)<\/template>/g, (match, templateContent) => {
     let uncommented = templateContent.replace(/<!--[\s\S]*?-->/g, ""); // HTML comments
     uncommented = normalizeWhitespace(uncommented);
     return match.replace(templateContent, `\n${uncommented}\n`);
   });
+  console.log('cleeaned html', cleanedText)
 
   const fullRange = new vscode.Range(
     document.positionAt(0),
