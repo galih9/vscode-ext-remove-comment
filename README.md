@@ -1,28 +1,7 @@
-# TS Tool: All you need for Typescript development
+# 🧩 VSCode Tetris: A Webview Experiment
 
-Tired of opening new browser tabs just to convert JSON Objects into typescript interface? Now you don't have to, just a single click away inside your vscode editor.
+Ever wondered how far VS Code webview extensions can go? This project answers that question by bringing a classic game directly into your editor!
 
-## Features
-- **Convert to Interface**: Convert your json objects to TypeScript interfaces with a single click.
-- **Copy to Clipboard**: Easily copy TypeScript code snippets to your clipboard for quick reuse.
+**VSCode Tetris** is an extension built primarily for **educational purposes**. It demonstrates the capabilities and potential of VS Code's webview API by embedding a fully functional Tetris game.
 
-## Usage
-
-Simply open the tab and paste your json object in there, if the json object is valid, then the interface result can be copied by click the copy to clipboard button.        
-
----
-
-## Stay Updated!
-
-This extension is under active development. Enable auto-updates in VS Code to always get the latest features and improvements.
-
----
-
-## Get in Touch
-
-* [Contact Me](http://code.visualstudio.com/docs/languages/markdown)
-* [My GitHub](https://github.com/galih9)
-
----
-
-**Happy Coding!**
+The core Tetris game logic was developed by [Rich East](https://codepen.io/REast) and is based on their original work found on [Codepen](https://codepen.io/REast/pen/bGMyqP).

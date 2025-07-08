@@ -1,7 +1,7 @@
 {
-  "name": "g9tstool",
-  "displayName": "TsTool",
-  "description": "All you need for typescript development",
+  "name": "vswv-tetris",
+  "displayName": "VSCode Tetris",
+  "description": "A simple vscode extension tetris demonstration",
   "icon": "media/icon.png",
   "publisher": "galih9",
   "version": "0.0.1",
@@ -21,18 +21,18 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "g9tstool-sidebar-view",
-          "title": "TsTool",
+          "id": "vswv-tetris-sidebar-view",
+          "title": "Vscode Tetris",
           "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "g9tstool-sidebar-view": [
+      "vswv-tetris-sidebar-view": [
         {
           "type": "webview",
-          "id": "g9tstool-sidebar",
-          "name": "Typescript tools",
+          "id": "vswv-tetris-sidebar",
+          "name": "Game",
           "icon": "media/icon.svg",
           "contextualTitle": "Ctxtitle"
         }
