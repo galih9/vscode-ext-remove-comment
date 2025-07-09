@@ -1,7 +1,7 @@
 {
-  "name": "vswv-tetris",
-  "displayName": "VSCode Tetris",
-  "description": "A simple vscode extension tetris demonstration",
+  "name": "vswv-json",
+  "displayName": "Json Visualizer",
+  "description": "Fast and lightweight JSON Viewer/ Visualizer",
   "icon": "media/icon.png",
   "publisher": "galih9",
   "version": "0.0.1",
@@ -18,23 +18,22 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "vswv-tetris-sidebar-view",
-          "title": "Vscode Tetris",
-          "icon": "media/icon.svg"
+    "commands": [
+      {
+        "command": "vswv-json.displayJson",
+        "title": "Display JSON Data",
+        "icon": {
+          "light": "media/action_icon.svg",
+          "dark": "media/action_icon_light.svg"
         }
-      ]
-    },
-    "views": {
-      "vswv-tetris-sidebar-view": [
+      }
+    ],
+    "menus": {
+      "editor/title": [
         {
-          "type": "webview",
-          "id": "vswv-tetris-sidebar",
-          "name": "Game",
-          "icon": "media/icon.svg",
-          "contextualTitle": "Ctxtitle"
+          "when": "resourceExtname == .json", 
+          "command": "vswv-json.displayJson",
+          "group": "navigation"  
         }
       ]
     }
