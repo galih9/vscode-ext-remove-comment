@@ -6,7 +6,7 @@ let currentPanel: vscode.WebviewPanel | undefined = undefined;
 export function activate(context: vscode.ExtensionContext) {
 
   let disposable = vscode.commands.registerCommand(
-    "vswv-json.displayJson",
+    "g9-json-viewer.displayJson",
     async () => {
       const editor = vscode.window.activeTextEditor;
 

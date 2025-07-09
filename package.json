@@ -1,6 +1,6 @@
 {
-  "name": "vswv-json",
-  "displayName": "Json Visualizer",
+  "name": "g9-json-viewer",
+  "displayName": "Json Viewer: Lightweight JSON Visualizer",
   "description": "Fast and lightweight JSON Viewer/ Visualizer",
   "icon": "media/icon.png",
   "publisher": "galih9",
@@ -20,7 +20,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "vswv-json.displayJson",
+        "command": "g9-json-viewer.displayJson",
         "title": "Display JSON Data",
         "icon": {
           "light": "media/action_icon.svg",
@@ -32,7 +32,7 @@
       "editor/title": [
         {
           "when": "resourceExtname == .json", 
-          "command": "vswv-json.displayJson",
+          "command": "g9-json-viewer.displayJson",
           "group": "navigation"  
         }
       ]
