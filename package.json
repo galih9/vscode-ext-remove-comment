@@ -4,7 +4,7 @@
   "description": "Fast and lightweight JSON Viewer/ Visualizer",
   "icon": "media/icon.png",
   "publisher": "galih9",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/galih9/vscode-ext-remove-comment"
@@ -31,7 +31,7 @@
     "menus": {
       "editor/title": [
         {
-          "when": "resourceExtname == .json", 
+          "when": "resourceExtname == .json || resourceLangId == json", 
           "command": "g9-json-viewer.displayJson",
           "group": "navigation"  
         }
